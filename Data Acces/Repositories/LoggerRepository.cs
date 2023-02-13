@@ -1,13 +1,8 @@
 ﻿using Business;
 using Data;
 using Data_Acces.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Data_Acces.Repositories
 {
@@ -35,7 +30,17 @@ namespace Data_Acces.Repositories
 
         public List<LogDTO> logDTOs()
         {
-            throw new NotImplementedException();
+            List<LogDTO> logDTOs = new List<LogDTO>();
+
+            using (SSMSContext ssmsContext = new SSMSContext())
+            {
+                foreach (var logDTO in ssmsContext.LogDTOs)
+                {
+                    logDTOs.Add(logDTO);
+                }
+            }
+
+            return logDTOs;
         }
 
         public void Update(LogDTO logDTO)
@@ -49,7 +54,7 @@ namespace Data_Acces.Repositories
                 uLogDTO.Source = logDTO.Source;
                 uLogDTO.User = logDTO.User;
                 uLogDTO.Message = logDTO.Message;
-                
+
                 ssmsContext.SaveChanges();
             }
         }
