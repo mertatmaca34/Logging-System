@@ -1,9 +1,7 @@
-﻿using System;
-using Business.Interfaces;
-using System.Windows.Forms;
-using System.Collections.Generic;
+﻿using Business.Interfaces;
 using Business.Services;
-using System.ComponentModel.DataAnnotations;
+using System;
+using System.Windows.Forms;
 
 namespace Presentation
 {
@@ -16,16 +14,13 @@ namespace Presentation
         }
         private void ButtonAddLog_Click(object sender, EventArgs e)
         {
-            var log = new Log
-            {
-                TimeStamp = DateTime.Now,
-                EventType = "Info",
-                Source = "PC",
-                User = "Mert",
-                Message = "Örnek log"
-            };
+            var TimeStamp = DateTime.Now;
+            var EventType = "Info";
+            var Source = "PC";
+            var User = "Mert";
+            var Message = "Örnek log";
 
-            loggerService.Add(log);
+            loggerService.Add(TimeStamp, EventType, Source, User, Message);
 
             LoadLogs();
         }

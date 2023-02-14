@@ -1,7 +1,5 @@
-﻿using Data;
-using Data_Acces.Interfaces;
+﻿using Data_Acces.Interfaces;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace Data_Acces.Repositories

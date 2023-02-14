@@ -2,6 +2,7 @@
 using Data_Acces;
 using Data_Acces.Interfaces;
 using Data_Acces.Repositories;
+using System;
 using System.Collections.Generic;
 
 namespace Business.Services
@@ -10,8 +11,17 @@ namespace Business.Services
     {
         ILoggerRepository loggerRepository = new LoggerRepository();
 
-        public void Add(Log log)
+
+        public void Add(DateTime TimeStamp, string EventType, string Source, string User, string Message)
         {
+            var log = new Log
+            {
+                TimeStamp = TimeStamp,
+                EventType = EventType,
+                Source = Source,
+                User = User,
+                Message = Message
+            };
             loggerRepository.Add(log);
         }
 

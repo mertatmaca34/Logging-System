@@ -1,5 +1,4 @@
-﻿using Data;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Data_Acces.Interfaces
 {
