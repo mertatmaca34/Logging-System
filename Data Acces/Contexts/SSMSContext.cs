@@ -1,10 +1,10 @@
 ﻿using Data;
 using System.Data.Entity;
 
-namespace Business
+namespace Data_Acces
 {
     public class SSMSContext : DbContext
     {
-        public DbSet<LogDTO> LogDTOs { get; set; }
+        public DbSet<Log> Log { get; set; }
     }
 }

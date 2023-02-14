@@ -5,9 +5,9 @@ namespace Data_Acces.Interfaces
 {
     public interface ILoggerRepository
     {
-        IEnumerable<LogDTO> GetAll();
-        void Create(LogDTO logDTO);
-        void Delete(LogDTO logDTO);
-        void Update(LogDTO logDTO);
+        IEnumerable<Log> GetAll();
+        void Add(Log log);
+        void Delete(Log log);
+        void Update(Log log);
     }
 }
