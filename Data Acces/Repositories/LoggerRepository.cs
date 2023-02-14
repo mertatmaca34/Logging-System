@@ -19,7 +19,7 @@ namespace Data_Acces.Repositories
         {
             using (SSMSContext ssmsContext = new SSMSContext())
             {
-                var dLog = ssmsContext.Log.Find(log.Timestamp);
+                var dLog = ssmsContext.Log.Find(log.TimeStamp);
 
                 ssmsContext.Log.Remove(dLog);
                 ssmsContext.SaveChanges();
@@ -30,7 +30,7 @@ namespace Data_Acces.Repositories
         {
             using (SSMSContext ssmsContext = new SSMSContext())
             {
-                return ssmsContext.Log.ToList();
+                return ssmsContext.Log;
             }
         }
 
@@ -38,9 +38,9 @@ namespace Data_Acces.Repositories
         {
             using (SSMSContext ssmsContext = new SSMSContext())
             {
-                var uLog = ssmsContext.Log.Find(log.Timestamp);
+                var uLog = ssmsContext.Log.Find(log.TimeStamp);
 
-                uLog.Timestamp = log.Timestamp;
+                uLog.TimeStamp = log.TimeStamp;
                 uLog.EventType = log.EventType;
                 uLog.Source = log.Source;
                 uLog.User = log.User;

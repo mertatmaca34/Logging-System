@@ -4,13 +4,14 @@ using Data_Acces.Interfaces;
 using Data_Acces.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Data;
 
 namespace Business.Services
 {
     public class LoggerService : ILoggerService
     {
         ILoggerRepository loggerRepository = new LoggerRepository();
-
 
         public void Add(DateTime TimeStamp, string EventType, string Source, string User, string Message)
         {
@@ -25,9 +26,11 @@ namespace Business.Services
             loggerRepository.Add(log);
         }
 
-        public IEnumerable<Log> GetAll()
+        public Array GetAll()
         {
-            return loggerRepository.GetAll();
+            List<Log> logs = loggerRepository.GetAll().ToList();
+
+            return logs.ToArray();
         }
     }
 }
