@@ -3,6 +3,7 @@ using Data;
 using Data_Acces.Interfaces;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Linq;
 
 namespace Data_Acces.Repositories
 {
@@ -28,19 +29,12 @@ namespace Data_Acces.Repositories
             }
         }
 
-        public List<LogDTO> logDTOs()
+        public IEnumerable<LogDTO> GetAll()
         {
-            List<LogDTO> logDTOs = new List<LogDTO>();
-
             using (SSMSContext ssmsContext = new SSMSContext())
             {
-                foreach (var logDTO in ssmsContext.LogDTOs)
-                {
-                    logDTOs.Add(logDTO);
-                }
+                return ssmsContext.LogDTOs.ToList();
             }
-
-            return logDTOs;
         }
 
         public void Update(LogDTO logDTO)
