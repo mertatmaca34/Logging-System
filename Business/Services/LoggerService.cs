@@ -1,25 +1,23 @@
 ﻿using Business.Interfaces;
 using Data_Acces;
 using Data_Acces.Interfaces;
+using Data_Acces.Repositories;
 using System.Collections.Generic;
 
 namespace Business.Services
 {
-    internal class LoggerService : ILoggerService
+    public class LoggerService : ILoggerService
     {
-        private readonly ILoggerRepository _repo;
-        public LoggerService(ILoggerRepository repo)
-        {
-            _repo = repo;
-        }
+        ILoggerRepository loggerRepository = new LoggerRepository();
+
         public void Add(Log log)
         {
-            _repo.Add(log);
+            loggerRepository.Add(log);
         }
 
         public IEnumerable<Log> GetAll()
         {
-            return _repo.GetAll();
+            return loggerRepository.GetAll();
         }
     }
 }

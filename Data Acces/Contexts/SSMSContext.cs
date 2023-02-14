@@ -1,5 +1,4 @@
-﻿using Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
 namespace Data_Acces
 {

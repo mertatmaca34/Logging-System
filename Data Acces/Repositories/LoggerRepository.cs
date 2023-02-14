@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Data_Acces.Repositories
 {
-    public class LoggerRepository : DbSet, ILoggerRepository
+    public class LoggerRepository : ILoggerRepository
     {
         public void Add(Log log)
         {

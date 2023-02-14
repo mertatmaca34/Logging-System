@@ -1,26 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Entity.SqlServer;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Business.Interfaces;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using Business.Services;
+using System.ComponentModel.DataAnnotations;
 
 namespace Presentation
 {
     public partial class Form1 : Form
     {
+        private readonly ILoggerService loggerService = new LoggerService();
         public Form1()
         {
             InitializeComponent();
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        private void ButtonAddLog_Click(object sender, EventArgs e)
         {
-            using(var ssmsContext = new SSMSContext())
+            var log = new Log
+            {
+                TimeStamp = DateTime.Now,
+                EventType = "Info",
+                Source = "PC",
+                User = "Mert",
+                Message = "Örnek log"
+            };
+
+            loggerService.Add(log);
+
+            LoadLogs();
+        }
+        private void LoadLogs()
+        {
+            DataGridViewLogs.DataSource = loggerService.GetAll();
         }
     }
 }

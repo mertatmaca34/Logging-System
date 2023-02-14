@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Business.Interfaces
 {
-    internal interface ILoggerService
+    public interface ILoggerService
     {
         IEnumerable<Log> GetAll();
         void Add(Log log);
