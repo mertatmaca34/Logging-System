@@ -25,11 +25,16 @@ namespace Data_Acces.Repositories
             }
         }
 
-        public IEnumerable<Log> GetAll()
+        public List<Log> GetAll()
         {
+            List<Log> logs = new List<Log>();
             using (LoggingSystem LoggingSystem = new LoggingSystem())
             {
-                return LoggingSystem.Log;
+                foreach (var item in LoggingSystem.Log)
+                {
+                    logs.Add(item);
+                }
+                return logs;
             }
         }
 

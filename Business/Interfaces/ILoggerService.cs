@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Data_Acces;
+using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace Business.Interfaces
