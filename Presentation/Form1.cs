@@ -1,9 +1,6 @@
 ﻿using Business.Interfaces;
 using Business.Services;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Presentation
@@ -14,9 +11,13 @@ namespace Presentation
         public Form1()
         {
             InitializeComponent();
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
             LoadLogs();
         }
+
         private void ButtonAddLog_Click(object sender, EventArgs e)
         {
             var TimeStamp = DateTime.Now;
@@ -29,9 +30,11 @@ namespace Presentation
 
             LoadLogs();
         }
+
         private void LoadLogs()
         {
             DataGridViewLogs.DataSource = loggerService.GetAll();
         }
+
     }
 }
