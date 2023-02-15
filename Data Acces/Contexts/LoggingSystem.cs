@@ -2,7 +2,7 @@
 
 namespace Data_Acces
 {
-    public class SSMSContext : DbContext
+    public class LoggingSystem : DbContext
     {
         public DbSet<Log> Log { get; set; }
     }

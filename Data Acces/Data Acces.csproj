@@ -54,7 +54,7 @@
     <Compile Include="Interfaces\ILoggerRepository.cs" />
     <Compile Include="Models\Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Contexts\SSMSContext.cs" />
+    <Compile Include="Contexts\LoggingSystem.cs" />
     <Compile Include="Repositories\LoggerRepository.cs" />
   </ItemGroup>
   <ItemGroup>

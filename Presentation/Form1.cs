@@ -18,10 +18,10 @@ namespace Presentation
         private void ButtonAddLog_Click(object sender, EventArgs e)
         {
             var TimeStamp = DateTime.Now;
-            var EventType = "Info";
-            var Source = "PC";
-            var User = "Mert";
-            var Message = "Örnek log";
+            var EventType = "Error";
+            var Source = "Presentation";
+            var User = "User123";
+            var Message = "An error has occurred.";
 
             loggerService.Add(TimeStamp, EventType, Source, User, Message);
 
