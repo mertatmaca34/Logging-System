@@ -28,7 +28,7 @@ namespace Business.Services
 
         public Array GetAll()
         {
-            List<Log> logs = loggerRepository.GetAll().ToList();
+            var logs = loggerRepository.GetAll();
 
             return logs.ToArray();
         }

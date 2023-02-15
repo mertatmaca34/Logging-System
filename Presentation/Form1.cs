@@ -14,6 +14,8 @@ namespace Presentation
         public Form1()
         {
             InitializeComponent();
+
+            LoadLogs();
         }
         private void ButtonAddLog_Click(object sender, EventArgs e)
         {
