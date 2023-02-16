@@ -20,11 +20,12 @@ namespace Presentation
 
         private void ButtonAddLog_Click(object sender, EventArgs e)
         {
+            //Example Log Adding
             var TimeStamp = DateTime.Now;
             var EventType = "Error";
             var Source = "Presentation";
             var User = "User123";
-            var Message = "An error has occurred.";
+            var Message = TextBoxLog.Text;
 
             loggerService.Add(TimeStamp, EventType, Source, User, Message);
 
