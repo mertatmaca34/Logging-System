@@ -1,57 +1,43 @@
-﻿using Data_Acces.Interfaces;
+﻿using DataAcces.Interfaces;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
-namespace Data_Acces.Repositories
+namespace DataAcces.Repositories
 {
-    public class LoggerRepository : ILoggerRepository
+    public class LoggerRepository : IRepository<Log>
     {
-        public void Add(Log log)
+        private readonly LoggingSystem context = new LoggingSystem();
+
+        public IEnumerable<Log> GetAll()
         {
-            using (LoggingSystem LoggingSystem = new LoggingSystem())
-            {
-                LoggingSystem.Log.Add(log);
-                LoggingSystem.SaveChanges();
-            }
+            return context.Set<Log>().ToList();
         }
 
-        public void Delete(Log log)
+        public Log GetById(object id)
         {
-            using (LoggingSystem LoggingSystem = new LoggingSystem())
-            {
-                var dLog = LoggingSystem.Log.Find(log.TimeStamp);
-
-                LoggingSystem.Log.Remove(dLog);
-                LoggingSystem.SaveChanges();
-            }
+            return context.Set<Log>().Find(id);
         }
 
-        public List<Log> GetAll()
+        public void Insert(Log entity)
         {
-            List<Log> logs = new List<Log>();
-            using (LoggingSystem LoggingSystem = new LoggingSystem())
-            {
-                foreach (var item in LoggingSystem.Log)
-                {
-                    logs.Add(item);
-                }
-                return logs;
-            }
+            context.Set<Log>().Add(entity);
+            context.SaveChanges();
         }
 
-        public void Update(Log log)
+        public void Update(Log entity)
         {
-            using (LoggingSystem LoggingSystem = new LoggingSystem())
-            {
-                var uLog = LoggingSystem.Log.Find(log.TimeStamp);
+            context.Set<Log>().Attach(entity);
+            context.Entry(entity).State = EntityState.Modified;
+            context.SaveChanges();
+        }
 
-                uLog.TimeStamp = log.TimeStamp;
-                uLog.EventType = log.EventType;
-                uLog.Source = log.Source;
-                uLog.User = log.User;
-                uLog.Message = log.Message;
-
-                LoggingSystem.SaveChanges();
-            }
+        public void Delete(object id)
+        {
+            var entity = context.Set<Log>().Find(id);
+            if (entity != null)
+                context.Set<Log>().Remove(entity);
+            context.SaveChanges();
         }
     }
 }

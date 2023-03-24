@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Presentation", "Presentation\Presentation.csproj", "{09DAA950-7E3F-498E-B4EE-59E9356830AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data Acces", "Data Acces\Data Acces.csproj", "{A7035F8F-FA62-4F51-A13A-8DA67C41A3FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAcces", "Data Acces\DataAcces.csproj", "{A7035F8F-FA62-4F51-A13A-8DA67C41A3FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{1267F292-055D-4FC2-BE3D-C31BED072A41}"
 EndProject

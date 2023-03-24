@@ -100,6 +100,10 @@
       <Project>{1267f292-055d-4fc2-be3d-c31bed072a41}</Project>
       <Name>Business</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Data Acces\DataAcces.csproj">
+      <Project>{a7035f8f-fa62-4f51-a13a-8da67c41a3fc}</Project>
+      <Name>DataAcces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

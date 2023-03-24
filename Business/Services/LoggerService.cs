@@ -1,29 +1,19 @@
 ﻿using Business.Interfaces;
-using Data_Acces;
-using Data_Acces.Interfaces;
-using Data_Acces.Repositories;
+using DataAcces;
+using DataAcces.Interfaces;
+using DataAcces.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Data;
 
 namespace Business.Services
 {
-    public class LoggerService : ILoggerService
+    public class LoggerService : IService<Log>
     {
-        ILoggerRepository loggerRepository = new LoggerRepository();
+        readonly IRepository<Log> loggerRepository = new LoggerRepository();
 
-        public void Add(DateTime TimeStamp, string EventType, string Source, string User, string Message)
+        public void Add(Log thing)
         {
-            var log = new Log
-            {
-                TimeStamp = TimeStamp,
-                EventType = EventType,
-                Source = Source,
-                User = User,
-                Message = Message
-            };
-            loggerRepository.Add(log);
+            loggerRepository.Insert(thing);
         }
 
         public Array GetAll()

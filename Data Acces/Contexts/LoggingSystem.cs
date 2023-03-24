@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace Data_Acces
+namespace DataAcces
 {
     public class LoggingSystem : DbContext
     {

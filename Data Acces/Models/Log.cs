@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Data_Acces
+namespace DataAcces
 {
     public class Log
     {

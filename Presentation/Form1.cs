@@ -1,5 +1,6 @@
 ﻿using Business.Interfaces;
 using Business.Services;
+using DataAcces;
 using System;
 using System.Windows.Forms;
 
@@ -7,7 +8,7 @@ namespace Presentation
 {
     public partial class Form1 : Form
     {
-        private readonly ILoggerService loggerService = new LoggerService();
+        private readonly IService<Log> loggerService = new LoggerService();
         public Form1()
         {
             InitializeComponent();
@@ -20,14 +21,16 @@ namespace Presentation
 
         private void ButtonAddLog_Click(object sender, EventArgs e)
         {
-            //Example Log Adding
-            var TimeStamp = DateTime.Now;
-            var EventType = "Error";
-            var Source = "Presentation";
-            var User = "User123";
-            var Message = TextBoxLog.Text;
+            var log = new Log
+            {
+                TimeStamp = DateTime.Now,
+                EventType = "Error",
+                Source = "Presentation",
+                User = "User123",
+                Message = TextBoxLog.Text
+            };
 
-            loggerService.Add(TimeStamp, EventType, Source, User, Message);
+            loggerService.Add(log);
 
             LoadLogs();
         }
@@ -36,6 +39,5 @@ namespace Presentation
         {
             DataGridViewLogs.DataSource = loggerService.GetAll();
         }
-
     }
 }
